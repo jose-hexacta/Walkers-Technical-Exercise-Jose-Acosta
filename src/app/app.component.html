@@ -1,0 +1,27 @@
+<div class="app-root">
+  <h1>Walkers Technical Exercise</h1>
+  <h2>Jose Acosta</h2>
+  <div class="container">
+    <form (ngSubmit)="setMaxNumber()">
+      <input type="number" [(ngModel)]="maxNumber" #name2="ngModel" name="maxNumber" min="1" max="200">
+      
+      <button type="submit" id="send"  class="btn" [disabled]="name2.invalid">Send</button>
+
+      <div *ngIf="name2.invalid && (name2.dirty || name2.touched)" class="alert">
+        <div *ngIf="name2.errors?.['min']">
+          Minimum value is 1
+        </div>
+        <div *ngIf="name2.errors?.['max']">
+          Maximum value is 200
+        </div>
+      </div>
+    </form>
+    <ul>
+      <li *ngFor="let item of numbers.slice(0, pageAcumulator)">
+        <app-list-item [number]="item + 1"></app-list-item>
+      </li>
+    </ul>
+
+    <button (click)="next20()" class="next btn" *ngIf="showNext20">Next 20</button>
+  </div>
+</div>

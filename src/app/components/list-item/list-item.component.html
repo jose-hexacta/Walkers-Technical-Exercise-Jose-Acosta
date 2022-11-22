@@ -1,0 +1,10 @@
+<span *ngIf="!showWalkers && !showssessment">{{number}}</span>
+<div *ngIf="showWalkers" class="walkers">
+    <span>walkers</span>
+    <span *ngIf="isMonday">-m</span>
+</div>
+
+<div *ngIf="showssessment" class="assessment">
+    <span>assessment</span>
+    <span *ngIf="isMonday">-m</span>
+</div>
